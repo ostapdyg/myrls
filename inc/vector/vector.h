@@ -20,9 +20,6 @@ int vector_push(vector self, void* data);
 
 const void** vector_data(vector self);
 
-size_t vector_size(vector self);
-
 int vector_free(vector self);
-
 
 #endif 
