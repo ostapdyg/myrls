@@ -1,0 +1,11 @@
+fork:
+    ptable_entry process;
+    process->pid = find_free_pid()
+    
+    process->pagetable = pagetable_clone(this_process->pagetable)
+    
+    process->regs = this_process->regs
+    process->parent = this_process
+    ptable.add(process)
+    scheduler.add(process)
+    return process->pid

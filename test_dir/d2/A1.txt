@@ -1,0 +1,26 @@
+test_dir:
+    d1
+    d2
+    f1.txt
+
+test_dir/d1:
+    d1_d1
+    d1_f1.txt
+    d1_f2.txt
+    d1_d2
+
+test_dir/d1/d1_d1:
+
+test_dir/d1/d1_d2:
+    d1_d2_f1.txt
+
+test_dir/d2:
+    d2_d1
+    a1.txt
+    a2.txt
+    d2_d2
+
+test_dir/d2/d2_d1:
+    a1.txt
+
+test_dir/d2/d2_d2:
