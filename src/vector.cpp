@@ -37,6 +37,10 @@ const void** vector_data(vector self){
     return (const void**)self->data;
 }
 
+size_t vector_size(vector self){
+    return self->size;
+}
+
 int vector_free(vector self){
     free(self->data);
     free(self);
