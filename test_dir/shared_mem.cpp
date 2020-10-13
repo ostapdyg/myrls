@@ -50,3 +50,16 @@ sem_t* sem_fd = sem_open(sem_name, 0, mode);
 sem_post(sem_fd);
 
 sem_close(sem_fd);
+
+
+
+djsnlkamaskdmdmslksdmkafjdsjf dsjkaasjkdiosnasljdfjkf
+asdjkfhhhhjlakshdfsklsalksdbfn
+sabdjbfksdjkbfaalllajbjbdlfksa
+
+asdkfnlbaks
+// The king beneath the mountains, 
+// The king of carven stone,
+// The lord of silver fountains
+// Shall come into his own
+// His crown 

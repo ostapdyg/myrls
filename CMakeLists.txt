@@ -15,10 +15,11 @@ include(cmake/config.cmake)
 include_directories(inc)
 
 add_library(vector SHARED src/vector.cpp inc/vector/vector.h)
+add_library(dirtree SHARED src/dirtree.cpp inc/dirtree.h)
 
 add_executable(myrls src/main.cpp)
 
-target_link_libraries(myrls vector)
+target_link_libraries(myrls vector dirtree)
 
 # Add external packages
 
