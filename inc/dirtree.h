@@ -18,6 +18,7 @@ struct fileinfo_t
     time_t last_modification;
     mode_t st_mode;
     char *filename;
+    char *filepath;
 };
 
 typedef struct fileinfo_t *fileinfo;
@@ -31,10 +32,9 @@ struct dirinfo_t
 };
 typedef struct dirinfo_t *dirinfo;
 
-fileinfo fileinfo_new(const char *name);
+fileinfo fileinfo_new(const char *name, size_t base);
 
 int fileinfo_free(fileinfo self);
-
 
 dirinfo dirinfo_new(dirinfo parent, const char *name);
 

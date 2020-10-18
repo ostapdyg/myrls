@@ -1,21 +1,21 @@
 #include <dirtree.h>
 
-#include<string.h>
+#include <string.h>
 
-
-fileinfo fileinfo_new(const char *name)
+fileinfo fileinfo_new(const char *path, size_t base)
 {
     fileinfo self = (fileinfo)malloc(sizeof(fileinfo_t));
 
-    char *local_name = (char *)malloc(sizeof(char) * strlen(name) + 1);
-    strcpy(local_name, name);
-    self->filename = local_name;
+    char *local_name = (char *)malloc(sizeof(char) * strlen(path) + 1);
+    strcpy(local_name, path);
+    self->filepath = local_name;
+    self->filename = self->filepath + base;
     return self;
 }
 
 int fileinfo_free(fileinfo self)
 {
-    free(self->filename);
+    free(self->filepath);
     free(self);
     return 0;
 }
@@ -37,7 +37,6 @@ dirinfo dirinfo_new(dirinfo parent, const char *name)
     return self;
 }
 
-
 int __str_compare(const char *s1, const char *s2)
 {
 
@@ -54,12 +53,14 @@ int __str_compare(const char *s1, const char *s2)
 
     // int c1 = (*s1);
     // int c2 = (*s2);
-    if(isalpha(c1)){
-        c1 = 256 + tolower(c1)*2 + !!isupper(c1);// All letters are bigger than special chars, and uppercase letters are bigger than respective lowercase
+    if (isalpha(c1))
+    {
+        c1 = 256 + tolower(c1) * 2 + !!isupper(c1); // All letters are bigger than special chars, and uppercase letters are bigger than respective lowercase
     }
     // c1 = tolower(c1) + (!!isalpha(c1))*(256 + tolower(c1) + !!isupper(c1))
-    if(isalpha(c2)){
-        c2 = tolower(c2)*2 + 256 + !!isupper(c2);// All letters are bigger than special chars, and uppercase letters are bigger than respective lowercase
+    if (isalpha(c2))
+    {
+        c2 = tolower(c2) * 2 + 256 + !!isupper(c2); // All letters are bigger than special chars, and uppercase letters are bigger than respective lowercase
     }
 
     if (c1 > c2)
@@ -94,9 +95,10 @@ int dirinfo_sort(dirinfo self)
     return 0;
 }
 
-int dirinfo_rapply(dirinfo self, int (*dirfunc)(dirinfo), int (*filefunc)(fileinfo)){
+int dirinfo_rapply(dirinfo self, int (*dirfunc)(dirinfo), int (*filefunc)(fileinfo))
+{
     (*dirfunc)(self);
-    
+
     fileinfo file;
 
     for (size_t i = 0; (file = (fileinfo)vector_get(self->files, i)); i++)
@@ -112,7 +114,6 @@ int dirinfo_rapply(dirinfo self, int (*dirfunc)(dirinfo), int (*filefunc)(filein
 
     return 0;
 }
-
 
 int dirinfo_free(dirinfo self)
 {
@@ -132,4 +133,5 @@ int dirinfo_free(dirinfo self)
     vector_free(self->files);
 
     free(self);
+    return 0;
 }
