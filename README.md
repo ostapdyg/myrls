@@ -2,7 +2,8 @@
 
 ## Team
 
- -[Dyhdalovych Ostap]
+ - Dyhdalovych Ostap 
+ - Kuchynskiy Volodymyr
  
 ## Prerequisites
 
@@ -30,9 +31,9 @@ The rest prerequisites (such as development libraries) can be found in the [pack
 ## Usage
 
 ```bash
-add [a] [b]
+myrls [FILE]
 ```
 
-If less than two numbers provided, zeroes are used instead. If more - an error occurs.
+If FILE is not provided, it is interpreted as current directory
 
 Help flags `-h`/`--help` support is available.
